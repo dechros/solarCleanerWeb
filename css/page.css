@@ -10,3 +10,10 @@ html {
     width: 100%;
     background-color: #EEEDEE;
 }
+
+.mainFrame {
+    min-height: 99.1vh;
+    width: 99.5%;
+    margin: 0;
+    padding: 0;
+}

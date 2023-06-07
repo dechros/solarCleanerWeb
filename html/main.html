@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>DS Fabrik Management</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #D7D7D7;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+            color: #414244;
+        }
+
+        header {
+            background-color: #D7D7D7;
+            padding: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .dashboard-text {
+            font-size: 16px;
+            font-weight: lighter;
+            display: flex;
+            align-items: center;
+            color: #9D9C9E;
+        }
+
+        .hamburger-icon,
+        .home-icon,
+        .search-bar input[type="text"],
+        .search-bar button,
+        main,
+        h1,
+        p,
+        footer {
+            color: #414244;
+        }
+
+        .hamburger-icon {
+            font-size: 20px;
+            margin-right: 5px;
+            cursor: pointer;
+        }
+
+        .home-icon {
+            font-size: 20px;
+            margin-right: 5px;
+            color: #9D9C9E;
+        }
+
+        .search-bar {
+            display: flex;
+            align-items: center;
+            background-color: #fff;
+            border-radius: 5px;
+            padding: 5px 10px;
+            flex: 1;
+            margin-left: 10px;
+        }
+
+        .search-bar input[type="text"] {
+            border: none;
+            padding: 5px;
+            width: 100%;
+            font-size: 14px;
+        }
+
+        .search-bar button {
+            background-color: #FFC404;
+            color: #fff;
+            border: none;
+            padding: 5px 10px;
+            margin-right: 10px;
+            border-radius: 3px;
+            cursor: pointer;
+        }
+
+        main {
+            padding: 40px;
+            flex: 1;
+            text-align: center;
+        }
+
+        h1 {
+            margin-bottom: 20px;
+        }
+
+        footer {
+            background-color: #fff;
+            padding: 5px;
+            text-align: center;
+            font-size: 12px;
+        }
+
+        .side-menu {
+            width: 250px;
+            height: 100vh;
+            background-color: #414244;
+            color: #fff;
+            padding: 20px;
+            position: fixed;
+            top: 0;
+            left: -300px;
+            transition: left 0.3s ease;
+            z-index: 999;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .side-menu.open {
+            left: 0;
+        }
+
+        .side-menu ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            flex-grow: 1;
+        }
+
+        .side-menu li {
+            margin-top: 25px;
+            margin-bottom: 25px;
+        }
+
+        .side-menu li a {
+            color: #fff;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            font-weight: normal;
+        }
+
+        .side-menu li a i {
+            margin-right: 5px;
+        }
+
+        .side-menu .logo-container {
+            display: flex;
+            align-items: center;
+            margin-bottom: 10px;
+        }
+
+        .side-menu .logo-image {
+            width: 100px;
+            height: auto;
+            margin-right: 10px;
+        }
+
+        .side-menu .logo-text {
+            font-size: 18px;
+            font-weight: bold;
+            color: #fff;
+        }
+
+        .side-menu .sign-out-link {
+            margin-top: auto;
+        }
+
+        .sign-out-link a {
+            display: block;
+            padding-bottom: 50px;
+        }
+
+        .close-menu {
+            display: flex;
+            justify-content: flex-end;
+            margin-bottom: 20px;
+        }
+
+        .close-icon {
+            font-size: 20px;
+            color: #fff;
+            cursor: pointer;
+        }
+
+        /* Overlay */
+        .overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+            z-index: 998;
+            display: none;
+        }
+
+        .overlay.visible {
+            display: block;
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <div class="dashboard-text">
+            <i class="fas fa-bars hamburger-icon"></i>
+            <i class="fas fa-home home-icon"></i>
+            <span>Dashboard</span>
+        </div>
+        <div class="search-bar">
+            <button><i class="fas fa-search"></i></button>
+            <input type="text" placeholder="Search...">
+        </div>
+    </header>
+    <main>
+        <h1>DS Fabrik Management Demo</h1>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin dapibus ligula id hendrerit feugiat. Nullam at
+            nisi
+            eu mauris efficitur posuere.</p>
+    </main>
+    <div class="side-menu" id="sideMenu">
+        <div class="close-menu">
+            <i class="fas fa-times close-icon"></i>
+        </div>
+        <div class="logo-container">
+            <img src="../res/dsLogo2.png" class="logo-image" alt="DS Fabrik Logo">
+            <span class="logo-text">Management System</span>
+        </div>
+        <ul>
+            <li><a href="#"><i class="fas fa-columns"></i>Dashboard</a></li>
+            <li><a href="#"><i class="fas fa-cog"></i>Left Track Parameters</a></li>
+            <li><a href="#"><i class="fas fa-cog"></i>Right Track Parameters</a></li>
+            <li><a href="#"><i class="fas fa-cog"></i>Miscellaneous Parameters</a></li>
+        </ul>
+        <div class="sign-out-link">
+            <a id="signOutLink">
+                <i class="fas fa-sign-out-alt"></i>Sign Out
+            </a>
+        </div>
+    </div>
+    <footer>
+        <p>&copy; 2023 DS Fabrik. All rights reserved.</p>
+    </footer>
+    <div class="overlay" id="overlay"></div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const hamburgerIcon = document.querySelector('.hamburger-icon');
+            const closeIcon = document.querySelector('.close-icon');
+            const sideMenu = document.getElementById('sideMenu');
+            const signOutLink = document.getElementById('signOutLink');
+            const overlay = document.getElementById('overlay');
+
+            function toggleSideMenu() {
+                sideMenu.classList.toggle('open');
+                overlay.classList.toggle('visible');
+            }
+
+            function closeSideMenu() {
+                sideMenu.classList.remove('open');
+                overlay.classList.remove('visible');
+            }
+
+            function signOut() {
+                window.location.href = "../index.html";
+            }
+
+            function closeOnOverlayClick(event) {
+                if (event.target === overlay) {
+                    closeSideMenu();
+                }
+            }
+
+            hamburgerIcon.addEventListener('click', toggleSideMenu);
+            closeIcon.addEventListener('click', closeSideMenu);
+            signOutLink.addEventListener('click', signOut);
+            overlay.addEventListener('click', closeOnOverlayClick);
+        });
+    </script>
+</body>
+
+</html>

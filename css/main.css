@@ -7,6 +7,7 @@ body {
     flex-direction: column;
     min-height: 100vh;
     color: var(--text-color);
+    user-select: none;
 }
 
 header {
@@ -17,25 +18,34 @@ header {
 }
 
 .hamburger-icon {
-    font-size: 20px;
+    font-size: var(--font-size);
     margin-right: 5px;
-    color: var(--text-color);
+    color: var(--secondary-text-color);
+    background-color: var(--primary-color);
+    border: none;
+    padding: 5px 10px;
+    margin-left: 0px;
+    border-radius: 3px;
 }
 
 .hamburger-icon:hover {
-    color: var(--secondary-color);
+    background-color: var(--secondary-color);
 }
 
 .page-header-text {
     display: flex;
     align-items: center;
-    color: var(--text-color);
+    color: var(--light-text-color);
 }
 
-.home-icon {
-    font-size: 20px;
-    margin-right: 5px;
-    color: var(--text-color);
+.page-header-text i {
+    font-size: var(--logo-size);
+}
+
+.page-icon {
+    font-size: var(--logo-size);
+    margin-right: 10px;
+    color: var(--light-text-color);
 }
 
 .search-bar {
@@ -60,9 +70,17 @@ header {
     background-color: var(--primary-color);
     color: var(--secondary-background-color);
     border: none;
-    padding: 5px 10px;
+    padding: 5px;
     margin-right: 10px;
     border-radius: 3px;
+}
+
+.search-bar button i {
+    font-size: var(--font-size);
+    margin-right: 0px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .search-bar button:hover {
@@ -96,7 +114,6 @@ footer {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    user-select: none;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 
@@ -181,12 +198,17 @@ footer {
 }
 
 .close-icon {
-    font-size: 20px;
+    font-size: var(--font-size);
     color: var(--secondary-text-color);
+    background-color: var(--primary-color);
+    border: none;
+    padding: 5px 10px;
+    margin-left: 0px;
+    border-radius: 3px;
 }
 
 .close-icon:hover {
-    color: var(--secondary-color);
+    background-color: var(--secondary-color);
 }
 
 .overlay {

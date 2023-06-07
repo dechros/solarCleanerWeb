@@ -64,6 +64,11 @@ header {
     padding: 5px;
     width: 100%;
     font-size: var(--font-size);
+    color: var(--text-color);
+}
+
+.search-bar input[type="text"]:focus {
+    outline-color: var(--menu-color);
 }
 
 .search-bar button {

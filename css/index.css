@@ -38,6 +38,11 @@ body {
     font-size: var(--font-size);
 }
 
+.container input[type="text"]:focus,
+.container input[type="password"]:focus {
+    outline-color: var(--menu-color);
+}
+
 .container button {
     background-color: var(--primary-color);
     color: #fff;
@@ -69,8 +74,14 @@ form {
 }
 
 .container input[type="text"],
-.container input[type="password"],
+.container input[type="password"] {
+    width: 95%;
+    color: var(--text-color);
+    font-size: var(--font-size);
+}
+
 .container button {
     width: 95%;
     font-size: var(--font-size);
+    color: var(--secondary-text-color);
 }

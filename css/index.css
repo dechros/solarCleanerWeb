@@ -1,22 +1,29 @@
 body {
-    font-family: Arial, sans-serif;
-    background-color: #D7D7D7;
+    font-family: var(--font-family);
+    background-color: var(--background-color);
+    font-size: var(--font-size);
+    color: var(--text-color);
 }
 
 .container {
-    max-width: 400px;
     margin: 0 auto;
     padding: 40px;
     background-color: #fff;
     border-radius: 5px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     text-align: center;
-    margin-top: 100px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 400px;
 }
 
 .container img.logo {
     margin-bottom: 30px;
     max-width: 200px;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 .container input[type="text"],
@@ -26,12 +33,13 @@ body {
     padding: 10px;
     box-sizing: border-box;
     margin-bottom: 20px;
-    border: 1px solid #ccc;
+    border: 1px solid var(--border-color);
     border-radius: 3px;
+    font-size: var(--font-size);
 }
 
 .container button {
-    background-color: #FFC404;
+    background-color: var(--primary-color);
     color: #fff;
     border: none;
     border-radius: 3px;
@@ -39,27 +47,30 @@ body {
 }
 
 .container button:hover {
-    background-color: #FFA500;
-}
-
-body {
-    font-family: Arial, sans-serif;
-    color: #414244; /* Set font color */
+    background-color: var(--secondary-color);
 }
 
 .container {
     text-align: center;
-    margin-top: 150px;
 }
 
 .logo {
     width: 200px;
     height: auto;
     margin-bottom: 20px;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 form {
     display: flex;
     flex-direction: column;
     align-items: center;
+}
+
+.container input[type="text"],
+.container input[type="password"],
+.container button {
+    width: 95%;
+    font-size: var(--font-size);
 }

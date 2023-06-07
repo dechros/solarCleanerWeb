@@ -1,0 +1,15 @@
+:root {
+    --primary-color: #FFC404;
+    --secondary-color: #FFA500;
+    --background-color: #D7D7D7;
+    --secondary-background-color: #FFF;
+    --text-color: #414244;
+    --secondary-text-color: #FFF;
+    --menu-color: #414244;
+    --border-color: #ccc;
+    --big-font-size: 20px;
+    --font-size: 15px;
+    --logo-size: 25px;
+    --small-font-size: 10px;
+    --font-family: Arial, sans-serif;
+}

@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Dashboard Page</title>
+    <link rel="stylesheet" type="text/css" href="../css/var.css">
+    <style>
+        body,
+        html {
+            width: 100%;
+            height: 100%;
+            font-family: var(--font-family);
+            background-color: var(--background-color);
+            margin: 0;
+            padding: 0;
+            color: var(--text-color);
+            user-select: none;
+        }
+
+        .container {
+            display: flex;
+            height: 100vh; /* Set container height to full viewport height */
+        }
+
+        .column {
+            display: flex;
+            flex-direction: column;
+            flex: 1;
+        }
+
+        .cell {
+            flex: 1;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: var(--secondary-background-color);
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            margin: 10px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="column">
+            <div class="cell">
+                Cell 1
+            </div>
+            <div class="cell">
+                Cell 2
+            </div>
+            <div class="cell">
+                Cell 3
+            </div>
+        </div>
+        <div class="column">
+            <div class="cell">
+                Cell 4
+            </div>
+            <div class="cell">
+                Cell 5
+            </div>
+            <div class="cell">
+                Cell 6
+            </div>
+        </div>
+        <div class="column">
+            <div class="cell">
+                Cell 7
+            </div>
+            <div class="cell">
+                Cell 8
+            </div>
+            <div class="cell">
+                Cell 9
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

@@ -4,6 +4,10 @@ document.addEventListener('DOMContentLoaded', function () {
     const sideMenu = document.getElementById('sideMenu');
     const signOutLink = document.getElementById('signOutLink');
     const overlay = document.getElementById('overlay');
+    const menuItems = document.querySelectorAll('.side-menu li');
+    const pageIcon = document.querySelector('.page-icon');
+    const pageHeaderText = document.querySelector('.page-header-text span');
+    const iframe = document.getElementById('mainFrame');
 
     function toggleSideMenu() {
         sideMenu.classList.toggle('open');
@@ -25,27 +29,37 @@ document.addEventListener('DOMContentLoaded', function () {
         }
     }
 
+    function handleMenuItemClick() {
+        const iconClass = this.querySelector('i').className;
+        pageIcon.className = `fas ${iconClass} page-icon`;
+
+        const menuItemText = this.textContent.trim();
+        pageHeaderText.textContent = menuItemText;
+
+        switch (menuItemText) {
+            case 'Dashboard':
+                iframe.src = 'dashboard.html';
+                break;
+            case 'Left Track Parameters':
+                iframe.src = 'leftTrack.html';
+                break;
+            case 'Right Track Parameters':
+                iframe.src = 'rightTrack.html';
+                break;
+            case 'Miscellaneous Parameters':
+                iframe.src = 'miscellaneous.html';
+                break;
+            default:
+                iframe.src = '';
+                break;
+        }
+    }
+
     hamburgerIcon.addEventListener('click', toggleSideMenu);
     closeIcon.addEventListener('click', closeSideMenu);
     signOutLink.addEventListener('click', signOut);
     overlay.addEventListener('click', closeOnOverlayClick);
-
-    const menuItems = document.querySelectorAll('.side-menu li');
-    const pageIcon = document.querySelector('.page-icon');
-
     menuItems.forEach(function (item) {
-        item.addEventListener('click', function () {
-            const iconClass = this.querySelector('i').className;
-            pageIcon.className = `fas ${iconClass} page-icon`;
-        });
-    });
-
-    const pageHeaderText = document.querySelector('.page-header-text span');
-
-    menuItems.forEach(function (item) {
-        item.addEventListener('click', function () {
-            const menuItemText = this.textContent.trim();
-            pageHeaderText.textContent = menuItemText;
-        });
+        item.addEventListener('click', handleMenuItemClick);
     });
 });

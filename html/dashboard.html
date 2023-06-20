@@ -17,66 +17,58 @@
             user-select: none;
         }
 
-        .container {
-            display: flex;
-            height: 100vh; /* Set container height to full viewport height */
-        }
-
-        .column {
-            display: flex;
-            flex-direction: column;
-            flex: 1;
+        table {
+            width: 100%;
+            height: 100%;
+            table-layout: fixed;
+            border-collapse: collapse;
         }
 
         .cell {
-            flex: 1;
-            display: flex;
-            justify-content: center;
-            align-items: center;
             background-color: var(--secondary-background-color);
             border-radius: 10px;
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-            margin: 10px;
+            text-align: center;
+            margin: 10px; /* Add margin of 10px between each cell */
+            height: calc(100% - 20px); /* Adjust the height to fill the remaining space with margin included */
         }
     </style>
 </head>
 
 <body>
-    <div class="container">
-        <div class="column">
-            <div class="cell">
-                Cell 1
-            </div>
-            <div class="cell">
-                Cell 2
-            </div>
-            <div class="cell">
-                Cell 3
-            </div>
-        </div>
-        <div class="column">
-            <div class="cell">
-                Cell 4
-            </div>
-            <div class="cell">
-                Cell 5
-            </div>
-            <div class="cell">
-                Cell 6
-            </div>
-        </div>
-        <div class="column">
-            <div class="cell">
-                Cell 7
-            </div>
-            <div class="cell">
-                Cell 8
-            </div>
-            <div class="cell">
-                Cell 9
-            </div>
-        </div>
-    </div>
+    <table>
+        <tr>
+            <td colspan="2">
+                <div class="cell">
+                    Cell 1
+                </div>
+            </td>
+            <td rowspan="3">
+                <div class="cell">
+                    Cell 2
+                </div>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <div class="cell">
+                    Cell 3
+                </div>
+            </td>
+            <td>
+                <div class="cell">
+                    Cell 4
+                </div>
+            </td>
+        </tr>
+        <tr>
+            <td colspan="2">
+                <div class="cell">
+                    Cell 5
+                </div>
+            </td>
+        </tr>
+    </table>
 </body>
 
 </html>

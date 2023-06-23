@@ -13,6 +13,7 @@
             width: 100%;
             height: 100%;
             font-family: var(--font-family);
+            font-size: var(--font-size);
             background-color: var(--background-color);
             margin: 0;
             padding: 0;
@@ -36,15 +37,75 @@
             height: calc(100% - 20px);
             display: flex;
             flex-direction: column;
-            /* Added property */
-            justify-content: center;
             align-items: center;
+            justify-content: space-between;
         }
 
         canvas {
             max-width: 100%;
-            max-height: 90%;
+            max-height: 95%;
+            padding: 20px;
+        }
+
+        .machine-list-wrapper {
+            margin-bottom: 10px;
+            display: flex;
+        }
+
+        .machine-name {
+            margin-right: 20px;
+        }
+
+        .notification-bubble {
+            background-color: var(--primary-color);
+            border-radius: 10px;
+            padding: 5px;
+            color: var(--secondary-text-color);
+        }   
+
+        .machine-list-wrapper:hover {
+            color: var(--secondary-color);
+        }
+
+        .rectangle-line {
+            width: auto;
+            height: 2px;
+            background-color: var(--primary-color);
+            align-items: center;
+            margin: 20px;
+        }
+
+        .top-div {
+            margin: 10px;
+            width: calc(100% - 20px);
+            font-size: var(--big-font-size);
+            font-weight: bold;
+        }
+
+        .middle-div {
+            margin: 10px;
+        }
+
+        .bottom-div {
+            margin: 10px;
+            width: calc(100% - 20px);
+        }
+
+        button {
+            background-color: var(--primary-color);
+            color: #fff;
+            border: none;
+            font-size: var(--font-size);
+            color: var(--secondary-text-color);
+            width: calc(50% - 30px);
             padding: 10px;
+            box-sizing: border-box;
+            border-radius: 3px;
+            margin: 10px;
+        }
+
+        button:hover {
+            background-color: var(--secondary-color);
         }
     </style>
 </head>
@@ -60,10 +121,43 @@
             <td colspan="1" rowspan="3">
                 <div class="cell">
                     <div class="top-div">
-                        <ul id="randomList"></ul>
+                        <p>Machine List</p>
+                        <div class="rectangle-line"></div>
+                    </div>
+                    <div class="middle-div">
+                        <div class="machine-list-wrapper">
+                            <span class="machine-name">Solar Panel Cleaner Company 1 (IP: 192.168.1.2)</span>
+                            <div class="notification-bubble">15</div>
+                        </div>
+                        <div class="machine-list-wrapper">
+                            <span class="machine-name">Solar Panel Cleaner Company 2 (IP: 192.168.1.3)</span>
+                            <div class="notification-bubble">16</div>
+                        </div>
+                        <div class="machine-list-wrapper">
+                            <span class="machine-name">Solar Panel Cleaner Company 3 (IP: 192.168.1.4)</span>
+                            <div class="notification-bubble">14</div>
+                        </div>
+                        <div class="machine-list-wrapper">
+                            <span class="machine-name">Solar Panel Cleaner Company 4 (IP: 192.168.1.5)</span>
+                            <div class="notification-bubble">12</div>
+                        </div>
+                        <div class="machine-list-wrapper">
+                            <span class="machine-name">Solar Panel Cleaner Company 5 (IP: 192.168.1.6)</span>
+                            <div class="notification-bubble">11</div>
+                        </div>
+                        <div class="machine-list-wrapper">
+                            <span class="machine-name">Solar Panel Cleaner Company 6 (IP: 192.168.1.7)</span>
+                            <div class="notification-bubble">16</div>
+                        </div>
+                        <div class="machine-list-wrapper">
+                            <span class="machine-name">Solar Panel Cleaner Company 7 (IP: 192.168.1.8)</span>
+                            <div class="notification-bubble">10</div>
+                        </div>
                     </div>
                     <div class="bottom-div">
-                        <canvas id="gaugeChart"></canvas>
+                        <div class="rectangle-line"></div>
+                        <button>Add Machine</button>
+                        <button>Delete Machine</button>
                     </div>
                 </div>
             </td>
@@ -77,13 +171,6 @@
             <td colspan="1" rowspan="1">
                 <div class="cell">
                     <canvas id="barChart"></canvas>
-                </div>
-            </td>
-        </tr>
-        <tr>
-            <td colspan="2" rowspan="1">
-                <div class="cell">
-                    <canvas id="cell4Chart"></canvas>
                 </div>
             </td>
         </tr>
@@ -118,15 +205,6 @@
             return data;
         }
 
-        // Generate random data for the cell4 chart
-        function generateRandomDataForCell4Chart() {
-            var data = [];
-            for (var i = 0; i < 5; i++) {
-                data.push(Math.floor(Math.random() * 100));
-            }
-            return data;
-        }
-
         // Get the canvas elements and create the charts
         var lineCanvas = document.getElementById('lineChart');
         var pieCanvas = document.getElementById('pieChart');
@@ -135,7 +213,6 @@
         var lineCtx = lineCanvas.getContext('2d');
         var pieCtx = pieCanvas.getContext('2d');
         var barCtx = barCanvas.getContext('2d');
-        var cell4Ctx = cell4Canvas.getContext('2d');
 
         function createLineChart() {
             new Chart(lineCtx, {
@@ -259,64 +336,9 @@
             });
         }
 
-        function createCell4Chart() {
-            new Chart(cell4Ctx, {
-                type: 'line',
-                data: {
-                    labels: ['A', 'B', 'C', 'D', 'E'],
-                    datasets: [
-                        {
-                            label: 'Random Data 1',
-                            data: generateRandomDataForCell4Chart(),
-                            backgroundColor: 'rgba(255, 0, 0, 0.2)',
-                            borderColor: 'rgba(255, 0, 0, 1)',
-                            borderWidth: 1
-                        },
-                        {
-                            label: 'Random Data 2',
-                            data: generateRandomDataForCell4Chart(),
-                            backgroundColor: 'rgba(0, 255, 0, 0.2)',
-                            borderColor: 'rgba(0, 255, 0, 1)',
-                            borderWidth: 1
-                        },
-                        // Add more datasets for additional lines
-                    ]
-                },
-                options: {
-                    responsive: true,
-                    maintainAspectRatio: false,
-                    scales: {
-                        x: {
-                            display: true,
-                            grid: {
-                                display: false
-                            }
-                        },
-                        y: {
-                            display: true,
-                            grid: {
-                                display: true
-                            }
-                        }
-                    },
-                    animation: {
-                        duration: 0 // Disable animation
-                    }
-                }
-            });
-        }
-
         createLineChart();
         createPieChart();
         createBarChart();
-        createCell4Chart();
-
-        var randomList = document.getElementById('randomList');
-        for (var i = 0; i < 6; i++) {
-            var listItem = document.createElement('li');
-            listItem.textContent = 'Random Item ' + (i + 1);
-            randomList.appendChild(listItem);
-        }
     });
 
 </script>

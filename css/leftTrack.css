@@ -31,37 +31,10 @@ table {
     justify-content: space-between;
 }
 
-canvas {
-    max-width: 100%;
-    max-height: 95%;
-    padding: 20px;
-}
-
-.machine-list-wrapper {
-    margin-bottom: 10px;
-    display: flex;
-}
-
-.machine-name {
-    margin-right: 20px;
-}
-
-.notification-bubble {
-    background-color: var(--primary-color);
-    border-radius: 10px;
-    padding: 5px;
-    color: var(--secondary-text-color);
-}
-
-.machine-list-wrapper:hover {
-    color: var(--secondary-color);
-}
-
 .rectangle-line {
     width: auto;
     height: 2px;
     background-color: var(--primary-color);
-    align-items: center;
     margin: 20px;
 }
 
@@ -72,28 +45,13 @@ canvas {
     font-weight: bold;
 }
 
-.middle-div {
-    margin: 20px;
-}
-
 .bottom-div {
-    margin: 20px;
-    width: calc(100% - 20px);
+    width: 100%;
 }
 
-button {
-    background-color: var(--primary-color);
-    color: #fff;
-    border: none;
-    font-size: var(--font-size);
-    color: var(--secondary-text-color);
-    width: calc(50% - 30px);
-    padding: 10px;
-    box-sizing: border-box;
-    border-radius: 3px;
-    margin: 10px;
-}
-
-button:hover {
-    background-color: var(--secondary-color);
+.slider {
+    margin-right: 40px;
+    margin-left: 40px;
+    width: calc(100% - 80px);
+    margin-bottom: 20px;
 }

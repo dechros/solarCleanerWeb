@@ -46,8 +46,11 @@ document.addEventListener('DOMContentLoaded', function () {
             case 'Right Track Parameters':
                 iframe.src = 'rightTrack.html';
                 break;
-            case 'Miscellaneous Parameters':
-                iframe.src = 'miscellaneous.html';
+            case 'Brush Parameters':
+                iframe.src = 'brush.html';
+                break;
+            case 'Controller Parameters':
+                iframe.src = 'controller.html';
                 break;
             default:
                 iframe.src = '';

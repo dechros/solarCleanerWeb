@@ -55,3 +55,7 @@ table {
     width: calc(100% - 80px);
     margin-bottom: 20px;
 }
+
+.hidden-cell {
+    visibility: hidden;
+}

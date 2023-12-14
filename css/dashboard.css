@@ -50,11 +50,9 @@ canvas {
     background-color: var(--primary-color);
     border-radius: 10px;
     padding: 5px;
+    margin-top: -5px;
+    margin-bottom: 15px;
     color: var(--secondary-text-color);
-}
-
-.machine-list-wrapper:hover {
-    color: var(--secondary-color);
 }
 
 .rectangle-line {

@@ -33,7 +33,7 @@ void loop()
         http.addHeader("Content-Type", "application/x-www-form-urlencoded");
 
         // replace with your machine parameters
-        String postData = "machineName=testMachine&machineIp=192.168.1.100&otherParam=value";
+        String postData = "machineName=testMachine&machineIp=192.168.1.100&errLeftCnt=0&errRightCnt=0&errBrushCnt=0&errControllerCnt=0&prmLeftRampUp=50&prmLeftRampDown=50&prmLeftMinSpeed=50&prmLeftMaxSpeed=50&prmRightRampUp=50&prmRightRampDown=50&prmRightMinSpeed=50&prmRightMaxSpeed=50&prmBrushRampUp=50&prmBrushRampDown=50&prmBrushMinSpeed=50&prmBrushMaxSpeed=50&prmJyMiddleVal=50&prmJyDeadZone=50&prmJoyMinVal=50&prmJoyMaxVal=50&prmPotMinVal=50&prmPotMaxVal=50";
 
         int httpResponseCode = http.POST(postData);
 

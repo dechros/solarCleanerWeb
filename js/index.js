@@ -1,5 +1,5 @@
 document.addEventListener('DOMContentLoaded', function () {
-    function getUser(userName) {
+    function getUserAPI(userName) {
         var apiUrl = "api/getUser.php";
 
         return fetch(apiUrl, {
@@ -34,7 +34,7 @@ document.addEventListener('DOMContentLoaded', function () {
         var password = document.getElementById('password').value;
 
         try {
-            var user = await getUser(username);
+            var user = await getUserAPI(username);
 
             if (password === user.userPw) {
                 window.location.href = 'html/main.html'; 

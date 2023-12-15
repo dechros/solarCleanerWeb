@@ -2,7 +2,7 @@ document.addEventListener('DOMContentLoaded', function () {
     var barCanvas = document.getElementById('barChart');
     var barCtx = barCanvas.getContext('2d');
     var machineData = [];
-    var selectedMachineIndex = 0;
+    var selectedMachineIndex = parseInt(localStorage.getItem('selectedMachineIndex'));
     class Machine {
         constructor(name, ip, errLeftCnt, errRightCnt, errBrushCnt, errControllerCnt) {
             this.name = name;
@@ -226,6 +226,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
             machineWrapper.addEventListener('click', function () {
                 selectedMachineIndex = index;
+                localStorage.setItem('selectedMachineIndex', selectedMachineIndex);
                 handleMachineClick();
                 createBarChart();
             });

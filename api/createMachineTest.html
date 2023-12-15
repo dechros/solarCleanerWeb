@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Create Machine Test</title>
+</head>
+
+<body>
+    <h1>Create Machine</h1>
+    <form id="createMachineForm">
+        <label for="machineName">Machine Name:</label>
+        <input type="text" id="machineName" name="machineName" required>
+        <br>
+        <label for="machineIp">Machine IP:</label>
+        <input type="text" id="machineIp" name="machineIp" required>
+        <br>
+        <label for="errLeftCnt">Error Left Count:</label>
+        <input type="text" id="errLeftCnt" name="errLeftCnt" required>
+        <br>
+        <label for="errRightCnt">Error Right Count:</label>
+        <input type="text" id="errRightCnt" name="errRightCnt" required>
+        <br>
+        <label for="errBrushCnt">Error Brush Count:</label>
+        <input type="text" id="errBrushCnt" name="errBrushCnt" required>
+        <br>
+        <label for="errControllerCnt">Error Controller Count:</label>
+        <input type="text" id="errControllerCnt" name="errControllerCnt" required>
+        <br>
+        <label for="prmLeftRampUp">Parameter Left Ramp Up:</label>
+        <input type="text" id="prmLeftRampUp" name="prmLeftRampUp" required>
+        <br>
+        <label for="prmLeftRampDown">Parameter Left Ramp Down:</label>
+        <input type="text" id="prmLeftRampDown" name="prmLeftRampDown" required>
+        <br>
+        <label for="prmLeftMinSpeed">Parameter Left Min Speed:</label>
+        <input type="text" id="prmLeftMinSpeed" name="prmLeftMinSpeed" required>
+        <br>
+        <label for="prmLeftMaxSpeed">Parameter Left Max Speed:</label>
+        <input type="text" id="prmLeftMaxSpeed" name="prmLeftMaxSpeed" required>
+        <br>
+        <label for="prmRightRampUp">Parameter Right Ramp Up:</label>
+        <input type="text" id="prmRightRampUp" name="prmRightRampUp" required>
+        <br>
+        <label for="prmRightRampDown">Parameter Right Ramp Down:</label>
+        <input type="text" id="prmRightRampDown" name="prmRightRampDown" required>
+        <br>
+        <label for="prmRightMinSpeed">Parameter Right Min Speed:</label>
+        <input type="text" id="prmRightMinSpeed" name="prmRightMinSpeed" required>
+        <br>
+        <label for="prmRightMaxSpeed">Parameter Right Max Speed:</label>
+        <input type="text" id="prmRightMaxSpeed" name="prmRightMaxSpeed" required>
+        <br>
+        <label for="prmBrushRampUp">Parameter Brush Ramp Up:</label>
+        <input type="text" id="prmBrushRampUp" name="prmBrushRampUp" required>
+        <br>
+        <label for="prmBrushRampDown">Parameter Brush Ramp Down:</label>
+        <input type="text" id="prmBrushRampDown" name="prmBrushRampDown" required>
+        <br>
+        <label for="prmBrushMinSpeed">Parameter Brush Min Speed:</label>
+        <input type="text" id="prmBrushMinSpeed" name="prmBrushMinSpeed" required>
+        <br>
+        <label for="prmBrushMaxSpeed">Parameter Brush Max Speed:</label>
+        <input type="text" id="prmBrushMaxSpeed" name="prmBrushMaxSpeed" required>
+        <br>
+        <label for="prmJyMiddleVal">Parameter Joy Middle Value:</label>
+        <input type="text" id="prmJyMiddleVal" name="prmJyMiddleVal" required>
+        <br>
+        <label for="prmJyDeadZone">Parameter Joy Dead Zone:</label>
+        <input type="text" id="prmJyDeadZone" name="prmJyDeadZone" required>
+        <br>
+        <label for="prmJoyMinVal">Parameter Joy Min Value:</label>
+        <input type="text" id="prmJoyMinVal" name="prmJoyMinVal" required>
+        <br>
+        <label for="prmJoyMaxVal">Parameter Joy Max Value:</label>
+        <input type="text" id="prmJoyMaxVal" name="prmJoyMaxVal" required>
+        <br>
+        <label for="prmPotMinVal">Parameter Pot Min Value:</label>
+        <input type="text" id="prmPotMinVal" name="prmPotMinVal" required>
+        <br>
+        <label for="prmPotMaxVal">Parameter Pot Max Value:</label>
+        <input type="text" id="prmPotMaxVal" name="prmPotMaxVal" required>
+        <br>
+        <button type="button" onclick="createMachine()">Create Machine</button>
+    </form>
+
+    <script>
+        function createMachine() {
+            var form = document.getElementById('createMachineForm');
+            var formData = new FormData(form);
+
+            fetch('../api/createMachine.php', {
+                method: 'POST',
+                body: formData
+            })
+                .then(response => response.json())
+                .then(data => {
+                    alert(data.message);
+                })
+                .catch(error => console.error('Error creating machine:', error));
+        }
+    </script>
+</body>
+
+</html>

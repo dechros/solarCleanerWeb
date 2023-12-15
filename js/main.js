@@ -1,4 +1,7 @@
 document.addEventListener('DOMContentLoaded', function () {
+    var selectedMachineIndex = 0;
+    localStorage.setItem('selectedMachineIndex', selectedMachineIndex);
+    
     const hamburgerIcon = document.querySelector('.hamburger-icon');
     const closeIcon = document.querySelector('.close-icon');
     const sideMenu = document.getElementById('sideMenu');

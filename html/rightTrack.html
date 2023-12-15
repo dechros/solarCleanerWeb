@@ -5,6 +5,7 @@
     <title>Right Track Page</title>
     <link rel="stylesheet" type="text/css" href="../css/var.css">
     <link rel="stylesheet" type="text/css" href="../css/rightTrack.css">
+    <script src="../js/rightTrack.js"></script> 
 </head>
 
 <body>
@@ -13,22 +14,22 @@
             <td colspan="1" rowspan="1">
                 <div class="cell">
                     <div class="top-div">
-                        <p>Ramp Up Speed</p>
+                        <p>Ramp Up Speed: <span id="prmRightRampUpValue">50</span></p>
                         <div class="rectangle-line"></div>
                     </div>
                     <div class="bottom-div">
-                        <input class="slider" type="range" min="0" max="100" value="50">
+                        <input id="prmRightRampUpSlider" class="slider" type="range" min="0" max="100" value="50" step="0.1">
                     </div>
                 </div>
             </td>
             <td colspan="1" rowspan="1">
                 <div class="cell">
                     <div class="top-div">
-                        <p>Ramp Down Speed</p>
+                        <p>Ramp Down Speed: <span id="prmRightRampDownValue">50</span></p>
                         <div class="rectangle-line"></div>
                     </div>
                     <div class="bottom-div">
-                        <input class="slider" type="range" min="0" max="100" value="50">
+                        <input id="prmRightRampDownSlider" class="slider" type="range" min="0" max="100" value="50" step="0.1">
                     </div>
                 </div>
             </td>
@@ -37,22 +38,22 @@
             <td colspan="1" rowspan="1">
                 <div class="cell">
                     <div class="top-div">
-                        <p>Maximum Speed</p>
+                        <p>Minimum Speed: <span id="prmRightMinSpeedValue">50</span></p>
                         <div class="rectangle-line"></div>
                     </div>
                     <div class="bottom-div">
-                        <input class="slider" type="range" min="0" max="100" value="50">
+                        <input id="prmRightMinSpeedSlider" class="slider" type="range" min="0" max="100" value="50" step="0.1">
                     </div>
                 </div>
             </td>
             <td colspan="1" rowspan="1">
                 <div class="cell">
                     <div class="top-div">
-                        <p>Minimum Speed</p>
+                        <p>Maximum Speed: <span id="prmRightMaxSpeedValue">50</span></p>
                         <div class="rectangle-line"></div>
                     </div>
                     <div class="bottom-div">
-                        <input class="slider" type="range" min="0" max="100" value="50">
+                        <input id="prmRightMaxSpeedSlider" class="slider" type="range" min="0" max="100" value="50" step="0.1">
                     </div>
                 </div>
             </td>
@@ -107,6 +108,7 @@
         </tr>
     </table>
 </body>
+
 <script>
 </script>
 
